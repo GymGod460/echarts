@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>阶梯折线图-门票价格</title>
+    <!-- 引入echarts，CDN方式，不用本地echarts.js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <!-- 图表容器 -->
+    <div id="main" style="width: 600px; height: 300px"></div>
+
+    <script>
+      // 初始化ECharts实例
+      var myChart = echarts.init(document.getElementById("main"));
+      var option = {};
+
+      // x轴月份数据
+      var xDataArr = [
+        "1月",
+        "2月",
+        "3月",
+        "4月",
+        "5月",
+        "6月",
+        "7月",
+        "8月",
+        "9月",
+        "10月",
+        "11月",
+        "12月",
+      ];
+      // y轴门票价格数据
+      var yDataArr = [20, 20, 20, 30, 30, 30, 30, 30, 30, 30, 30, 20];
+
+      // 配置项
+      var option = {
+        title: {
+          text: "门票价格",
+        },
+        tooltip: {
+          feature: {
+            saveAsImage: {},
+            dataView: {},
+            restore: {},
+          },
+        },
+        xAxis: {
+          name: "月份",
+          type: "category",
+          data: xDataArr,
+        },
+        yAxis: {
+          name: "价格（元/张）",
+          type: "value",
+        },
+        series: [
+          {
+            type: "line",
+            step: "middle",
+            name: "门票价格",
+            data: yDataArr,
+            lineStyle: {
+              color: "#2E86AB",
+              width: 2,
+            },
+            itemStyle: {
+              color: "#A23B72",
+            },
+          },
+        ],
+      };
+
+      // 渲染图表
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

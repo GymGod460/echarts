@@ -1,0 +1,102 @@
+## 总结
+
+### 源代码
+```
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>堆叠面积折线图</title>
+    <!-- 引入js文件 -->
+    <script src="./echarts.js"></script>
+  </head>
+  <body>
+    <div id="main" style="width: 900px; height: 900px"></div>
+    <script>
+      var mycharts = echarts.init(document.getElementById("main"));
+      var option = {
+        tittle: {
+         text:"月饼销量堆叠面积图"
+        },
+        legend: {
+          top: "10%",
+        },
+        xAxis: {
+          name: "季度",
+          type: "category",
+          data: ["第一季度", "第二季度", "第三季度", "第四季度"],
+        },
+        yAxis: {
+          name: "数量",
+          type: "value",
+        },
+        series: [
+          {
+            name: "广式月饼",
+            type: "line",
+            stack: "a",
+            data: [7, 9, 11, 8],
+            areaStyle: {},
+          },
+          {
+            name: "京shi月饼",
+            type: "line",
+            stack: "a",
+            data: [8, 10, 13, 12],
+            areaStyle: {},
+          },
+          {
+            name: "苏shi月饼",
+            type: "line",
+            stack: "a",
+            data: [9, 8, 12, 11],
+            areaStyle: {},
+          },
+        ],
+      };
+      option && mycharts.setOption(option);
+    </script>
+  </body>
+</html>
+```
+### 效果图
+![tupian](../image/2.1.4.png)
+#### 图例组件
+ legend: {
+          top: "10%",
+        },
+#### 坐标轴组件
+  xAxis: {
+          name: "季度",
+          type: "category",
+          data: ["第一季度", "第二季度", "第三季度", "第四季度"],
+        },
+        yAxis: {
+          name: "数量",
+          type: "value",
+        },
+#### 系列组件
+     series: [
+          {
+            name: "广式月饼",
+            type: "line",
+            stack: "a",
+            data: [7, 9, 11, 8],
+            areaStyle: {},
+          },
+          {
+            name: "京shi月饼",
+            type: "line",
+            stack: "a",
+            data: [8, 10, 13, 12],
+            areaStyle: {},
+          },
+          {
+            name: "苏shi月饼",
+            type: "line",
+            stack: "a",
+            data: [9, 8, 12, 11],
+            areaStyle: {},
+          },
+        ],

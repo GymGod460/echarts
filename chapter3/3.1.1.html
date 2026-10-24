@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>某款洗发水一年的销售情况</title>
+    <script src="/echarts/echarts.js">
+
+    </script>
+
+</head>
+
+<body>
+    <div id="main" style="width: 500PX; height: 800px;"></div>
+    <script>
+        var myecharts = echarts.init(document.getElementById('main'))
+        var xdata = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+        var ydata = [740, 900, 700, 800, 920, 750, 400, 600, 550, 290, 392, 400]
+        var Option = {
+            title: {
+                text: '某款洗发水的年销售情况'
+            },
+            xAxis: {
+                name: "销量（瓶）",
+                type: "value",
+                data: ydata
+            },
+            yAxis: {
+                name: "月份",
+                type: "category"
+            },
+            series: [
+                {
+                    data: ydata,
+                    type: "bar",
+                    showBackground: true,
+                    backgroundStyle: {
+                        color: 'rgba(170,170,170,0.2)'
+                    },
+                    //拓展1：label 显示柱子文字标签
+                    label: {
+                        show: true,
+                        position: 'top'
+                    },
+                    //  拓展2：emphasis 鼠标悬浮高亮
+                    emphasis: {
+                        focus: 'series',
+                        itemStyle: {
+                            color: '#3398ff'
+                        }
+                    },
+                    //拓展3：markPoint 标记最大最小值
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: '最大值' },
+                            { type: 'min', name: '最小值' }
+                        ]
+                    }
+                }
+            ]
+
+        };
+        myecharts.setOption(Option);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>平滑曲线图-一周快递发货数量</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <!-- 图表容器 -->
+    <div id="main" style="width: 500px; height: 300px"></div>
+
+    <script>
+      // 初始化ECharts实例
+      var myChart = echarts.init(document.getElementById("main"));
+      var option = {};
+
+      // 配置项
+      var option = {
+        title: {
+          text: "一周之内快递发货数量",
+        },
+        dataset: {
+          source: [
+            ["time", "count"],
+            ["周一", 100],
+            ["周二", 50],
+            ["周三", 80],
+            ["周四", 60],
+            ["周五", 110],
+            ["周六", 120],
+            ["周日", 130],
+          ],
+        },
+        xAxis: {
+          name: "星期",
+          type: "category",
+        },
+        yAxis: {
+          name: "发货总量（单）",
+        },
+        series: [
+          {
+            type: "pie",
+            radius: ["40%", "75%"],
+            data: [
+              { value: 400, name: "苹果" },
+              { value: 600, name: "西瓜" },
+              { value: 200, name: "葡萄" },
+              { value: 300, name: "柚子" },
+            ],
+            label: {
+              formatter: "{b}\n{d}%",
+            },
+          },
+        ],
+      };
+
+      // 渲染图表
+      if (option && myChart) {
+        myChart.setOption(option);
+      }
+    </script>
+  </body>
+</html>

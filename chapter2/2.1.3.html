@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>区域面积折线图</title>
+
+    <script src="./echarts.js"></script>
+  </head>
+  <body>
+    <div id="main" style="width: 500px; height: 500px"></div>
+    <script>
+      var mycharts = echarts.init(document.getElementById("main"));
+
+      var option = {
+        // 标题组件
+        title: {
+          text: "主标题",
+          subtext: "副标题", //拓展：副标题
+          left: "center",
+          top: 10, //定位 left/center/right，像素/百分比
+          textStyle: { color: "red", fontSize: 18 }, //主标题文字样式
+          subtextStyle: { color: "red" }, //副标题样式
+        },
+
+        //
+        grid: {
+          show: true,
+        },
+        xAxis: {
+          name: "年份",
+          type: "category",
+          data: ["2018", "2019", "2020", "2021", "2022"],
+        },
+        yAxis: {
+          name: "粉丝数量(人)",
+          type: "value",
+        },
+        series: [
+          {
+            data: ["12000", "30000", "30300", "40020", "55000"],
+            type: "line",
+            areaStyle: {},
+            label: {},
+          },
+        ],
+      };
+
+      option && mycharts.setOption(option);
+    </script>
+  </body>
+</html>
